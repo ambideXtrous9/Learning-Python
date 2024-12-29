@@ -6,7 +6,10 @@ def conv2D(input,kernel,stride,padding):
     
     N,Kc,Kh,Kw = kernel.shape
     
-    input_padded = np.pad(input,((0,0),(padding,padding),(padding,padding)), mode='constant')
+    # input_padded = np.pad(input,((0,0),(padding,padding),(padding,padding)), mode='constant')
+
+    input_padded = np.pad(input, pad_width = 1, mode = 'constant')
+
     
     OH = ((H-Kh + 2*padding) // stride) + 1
     OW = ((W-Kw + 2*padding) // stride) + 1
